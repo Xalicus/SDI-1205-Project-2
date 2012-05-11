@@ -10,8 +10,9 @@ var playTime = true;
 var foodType = "hamburgers"; // "hamburgers" or "pasta"
 var bunToppings = ["mayo, mustard, BBQ sauce, and cheese slices" , "ketchup, mustard, relish, and cheese slices"];
 var pastaTypes = ["Chicken Alfredo" , "Spagetti"];
-var condosAvail = [ "are" , "are not" ];
+var condosAvail = [ "sound" , "don\'t sound" ];
 var pastaAvail = [ "is" , "is" ];
+var myCash = 25; // It should be more than just $25. *Sniff, sniff*
 var hoursLeft = 2;
 
 // Say function for space saving code power!
@@ -52,7 +53,7 @@ var feedingTime = function (pronoun , typeOfYummies) {
 var yumFood = function (foodType) {
 	if ( foodType === "hamburgers" ){
 		for (var i = 0, j = bunToppings.length; i < j; i++) {
-			say( "The condiments " + bunToppings[i] + ", " + condosAvail[i] + " available." );
+			say( "The condiments " + bunToppings[i] + ", " + condosAvail[i] + " good." );
 		};
 	} else {
 		for (var i = 0, j = pastaTypes.length; i < j; i++) {
@@ -62,7 +63,15 @@ var yumFood = function (foodType) {
 };
 
 // While-Loop Function
-
+var song = function () {
+	while (myCash > 0) {
+		say( "\"" + myCash + " dollars are fleeting. Oh NOES!!!\"" );
+		myCash--;
+	};
+	say( "\"No more cash in my wallet. What should I do?\"" );
+	noCash = 0;
+	return noCash;
+};
 
 // For-Loop Function
 
@@ -92,6 +101,14 @@ say("I eat up all the yumminess, and finally decide I\'m ready for the week\'s s
 say("But now I only have a couple hours left in the day until it\'s due.");
 
 say("What should I do?");
+
+say("I sing a song to myself!");
+
+song();
+
+say("Okay, I think I\'m done singing for the week... Now what?");
+
+say("There isn't much time left today. What to do now?");
 
 say("Cram as much as I can in the hours I have left, or procrastinate until tomorrow?");
 
