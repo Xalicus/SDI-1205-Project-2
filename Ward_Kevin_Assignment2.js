@@ -13,6 +13,8 @@ var pastaTypes = ["Chicken Alfredo" , "Spagetti"];
 var condosAvail = [ "sound" , "don\'t sound" ];
 var pastaAvail = [ "is" , "is" ];
 var myCash = 25; // It should be more than just $25. *Sniff, sniff*
+var storeNames = [ "GameStop", "Walmart", "Bookman\'s", "Movie Theater" ],
+	minPerStore = [ 50, 20, 30, 120 ];
 var hoursLeft = 2;
 
 // Say function for space saving code power!
@@ -74,7 +76,24 @@ var song = function () {
 };
 
 // For-Loop Function
+var shopOneStore = function(storeName, minThisStore){
+	say("\"Shopping at " + storeName + " for "
+		+ minThisStore + " minutes.\"");
+	for (var minutes = 0; minutes < minThisStore; minutes += 5){
+		var minRemain = minThisStore - minutes;
+		say( "\"" + minutes + " have past, " + minRemain + " left to go!\"" );
+	};
+	
+	say( "\"I'm done with " + storeName + ", for now! *Snicker*\"" );
+};
 
+var goToStores = function(storeNames, minPerStore) {
+	for (var storeNumber = 0; storeNumber < storeNames.length; storeNumber++){
+		var storeName = storeNames[storeNumber],
+			minThisStore = minPerStore[storeNumber];
+		shopOneStore( storeName, minThisStore );
+	};
+};
 
 // My Procrastination Adventure!
 
@@ -106,19 +125,21 @@ say("I sing a song to myself!");
 
 song();
 
+say("A quick glance at my wallet confirms the song\'s truth...");
+
+say("I have " + noCash + " cash in my wallet, darn!");
+
 say("Okay, I think I\'m done singing for the week... Now what?");
 
 say("There isn't much time left today. What to do now?");
 
-say("Cram as much as I can in the hours I have left, or procrastinate until tomorrow?");
-
-if (hoursLeft >= 3) {
-	say("I can cram it all in tonight!");
-} else {
-	say("Ooh Noes!!! I have to wait until tomorrow to finish.");
-};
+say("Cram as much as I can in the hours I have left, or go Shopping?");
 
 say("Number 2 sounds really good to me.");
+
+goToStores(storeNames, minPerStore);
+
+say("\"Now it's really late! I need to get some rest.\"");
 
 say("The End!");
 
