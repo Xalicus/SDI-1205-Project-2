@@ -8,9 +8,10 @@
 
 var playTime = true;
 var foodType = "hamburgers"; // "hamburgers" or "pasta"
-var burgerToppings = ["mayo, mustard, BBQ sauce, and cheese slices" , "ketchup, mustard, relish, and cheese slices"];
+var bunToppings = ["mayo, mustard, BBQ sauce, and cheese slices" , "ketchup, mustard, relish, and cheese slices"];
 var pastaTypes = ["Chicken Alfredo" , "Spagetti"];
-var cheeseSlices = "cheese";
+var condosAvail = [ "are" , "are not" ];
+var pastaAvail = [ "is" , "is" ];
 var hoursLeft = 2;
 
 // Say function for space saving code power!
@@ -38,15 +39,27 @@ var feedingTime = function (pronoun , typeOfYummies) {
 		say("\"" + pronoun + " wanting to eat " + typeOfYummies + "!\"");
 		say("I search the kitchen for some " + foodType + ".");
 		say("So I start grilling up some nice, juicy " + foodType + " in the kitchen.");
+		say("What condiments should I slather over my buns?");
 	} else {
 		say("\"" + pronoun + " wanting to eat " + typeOfYummies + "!\"");
 		say("I search the kitchen for some " + foodType + ".");
 		say("So I start cooking up some nice, flavorful " + foodType + " on the stove.");
+		say("What kinds of pasta do I have?");
 	};
 };
 
 // Double String Function
-
+var yumFood = function (foodType) {
+	if ( foodType === "hamburgers" ){
+		for (var i = 0, j = bunToppings.length; i < j; i++) {
+			say( "The condiments " + bunToppings[i] + ", " + condosAvail[i] + " available." );
+		};
+	} else {
+		for (var i = 0, j = pastaTypes.length; i < j; i++) {
+			say( "The " + pastaTypes[i] + ", " + pastaAvail[i] + " available." );
+		};
+	};
+};
 
 // While-Loop Function
 
@@ -72,15 +85,7 @@ say("I have pasta or hamburgers, hmmm.");
 
 feedingTime("I\'m" , foodType);
 
-say("Now what should I put on the buns?");
-
-say("There\'s mayo, mustard, relish, BBQ sauce, ketchup, cheese, etc.");
-
-if (cheeseSlices === "cheese") {
-	say("I think I\'ll just put on some mayo, mustard, BBQ sauce, and cheese slices.");
-} else {
-	say("I\'ll just put on ketchup, mustard, relish, and cheese slices, instead.");
-};
+yumFood(foodType);
 
 say("I eat up all the yumminess, and finally decide I\'m ready for the week\'s schoolwork.");
 
