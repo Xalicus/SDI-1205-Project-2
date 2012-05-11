@@ -6,9 +6,11 @@
 
 // Variables
 
-var longTime = true
-var reallyHungry = true
-var cheeseSlices = "cheese"
+var playTime = true;
+var foodType = "hamburgers"; // "hamburgers" or "pasta"
+var burgerToppings = ["mayo, mustard, BBQ sauce, and cheese slices" , "ketchup, mustard, relish, and cheese slices"];
+var pastaTypes = ["Chicken Alfredo" , "Spagetti"];
+var cheeseSlices = "cheese";
 var hoursLeft = 2;
 
 // Say function for space saving code power!
@@ -31,7 +33,17 @@ var playTime = function (playingTime) {
 };
 
 // Double Argument Function
-
+var feedingTime = function (pronoun , typeOfYummies) {
+	if ( foodType === "hamburgers" ) {
+		say("\"" + pronoun + " wanting to eat " + typeOfYummies + "!\"");
+		say("I search the kitchen for some " + foodType + ".");
+		say("So I start grilling up some nice, juicy " + foodType + " in the kitchen.");
+	} else {
+		say("\"" + pronoun + " wanting to eat " + typeOfYummies + "!\"");
+		say("I search the kitchen for some " + foodType + ".");
+		say("So I start cooking up some nice, flavorful " + foodType + " on the stove.");
+	};
+};
 
 // Double String Function
 
@@ -58,13 +70,7 @@ say("Oh but what to eat?");
 
 say("I have pasta or hamburgers, hmmm.");
 
-if (reallyHungry === true) {
-	say("Let\'s go with the hamburgers!");
-} else {
-	say("Pasta sounds really yummy now!");
-};
-
-say("So I start grilling up some nice, juicy hamburgers in the kitchen.");
+feedingTime("I\'m" , foodType);
 
 say("Now what should I put on the buns?");
 
